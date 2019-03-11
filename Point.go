@@ -10,7 +10,6 @@ func (Point) geomType() string {
 	return "point"
 }
 
-//Factory Functions
 func (p *Point) createPointFromCoords(x float64, y float64) {
 	p.X = x
 	p.Y = y

@@ -28,8 +28,8 @@ func createPolyLineFromLines(lines []Line) PolyLine {
 	return p
 }
 
-//Returns length of a polyline.
-func (p *PolyLine) getPolyLineLength() float64 {
+//GetLength - Returns length of a polyline.
+func (p *PolyLine) GetLength() float64 {
 	var d float64
 	for _, l := range *p {
 		d = d + l.getLineLength()
@@ -37,8 +37,8 @@ func (p *PolyLine) getPolyLineLength() float64 {
 	return d
 }
 
-// Returns all vertices in Polyline. //Move out, and create interface.
-func (p *PolyLine) getVertices() []Point {
+// GetVertices - returns all vertices in Polyline.
+func (p *PolyLine) GetVertices() []Point {
 	var v []Point
 	for i, l := range *p {
 		if i == 0 {
@@ -47,6 +47,36 @@ func (p *PolyLine) getVertices() []Point {
 		v = append(v, Point{X: l[1].X, Y: l[1].Y}) // Only add 2nd Point normally so don't duplicate.
 	}
 	return v
+}
+
+func (p *PolyLine) getNumVertices() int {
+	return len(*p) + 1
+}
+
+func (p *PolyLine) getBBox() BoundingBox {
+	points := p.GetVertices()
+	var minX float64
+	var minY float64
+	var maxX float64
+	var maxY float64
+
+	for _, pt := range points {
+		if pt.X < minX {
+			minX = pt.X
+		}
+		if pt.Y < minY {
+			minY = pt.Y
+		}
+		if pt.X > maxX {
+			maxX = pt.X
+		}
+		if pt.Y > maxY {
+			maxY = pt.Y
+		}
+
+	}
+	return BoundingBox{Point{X: minX, Y: minY}, Point{X: maxX, Y: maxY}}
+
 }
 
 // NumEdges returns the number of edges in this shape. // Copied from S2 //Move out, and create interface.
@@ -58,7 +88,7 @@ func (p *PolyLine) getNumEdges() int {
 }
 
 //ClosedChain - Check if is a closed chain of lines (i.e. it is a Polygon)
-func (p PolyLine) ClosedChain() bool {
+func (p PolyLine) checkClosedChain() bool {
 	start := p[0][0]
 	end := p[len(p)-1][1]
 	x, y := false, false

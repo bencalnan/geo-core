@@ -10,12 +10,12 @@ func (Line) geomType() string {
 }
 
 //GetBBox - Return Bounding box of Line
-func (l *Line) GetBBox() [2]Point {
+func (l *Line) GetBBox() BoundingBox {
 	maxX := math.Max(l[0].X, l[1].X)
 	maxY := math.Max(l[0].Y, l[1].Y)
-	minX := math.Max(l[0].X, l[1].X)
-	minY := math.Max(l[0].Y, l[1].Y)
-	return [2]Point{Point{X: minX, Y: minY}, Point{X: maxX, Y: maxY}}
+	minX := math.Min(l[0].X, l[1].X)
+	minY := math.Min(l[0].Y, l[1].Y)
+	return BoundingBox{Min: Point{X: minX, Y: minY}, Max: Point{X: maxX, Y: maxY}}
 }
 
 func createLine(a Point, b Point) Line {
