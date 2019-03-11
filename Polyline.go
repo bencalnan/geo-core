@@ -3,6 +3,10 @@ package main
 //PolyLine - Aka Polygonal chain, linestring,
 type PolyLine []Line
 
+func (PolyLine) geomType() string {
+	return "polyline"
+}
+
 // Creates a Polyline from a slice of Points
 func createPolylineFromPoints(points []Point) PolyLine {
 	var p PolyLine
@@ -33,7 +37,7 @@ func (p *PolyLine) getPolyLineLength() float64 {
 	return d
 }
 
-// Returns all vertices in Polyline.
+// Returns all vertices in Polyline. //Move out, and create interface.
 func (p *PolyLine) getVertices() []Point {
 	var v []Point
 	for i, l := range *p {
@@ -45,7 +49,7 @@ func (p *PolyLine) getVertices() []Point {
 	return v
 }
 
-// NumEdges returns the number of edges in this shape. // Copied from S2
+// NumEdges returns the number of edges in this shape. // Copied from S2 //Move out, and create interface.
 func (p *PolyLine) getNumEdges() int {
 	if len(*p) == 0 {
 		return 0
