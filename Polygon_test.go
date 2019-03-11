@@ -12,8 +12,15 @@ func TestCreatePolygonFromPoints(t *testing.T) {
 		},
 	)
 	edges := poly.getNumEdges()
+
 	if edges != 4 {
 		t.Errorf("Creating Polygon from points function was incorrect, got: %d edges, want: %d edges.", edges, 4)
+	}
+
+	closed := poly.ClosedChain()
+
+	if closed != true {
+		t.Error("Creating Polygon from points failed, polygon not closed")
 	}
 }
 

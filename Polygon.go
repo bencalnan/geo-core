@@ -20,7 +20,7 @@ func CreatePolygonFromPoints(points []Point) Polygon {
 	}
 
 	//Final linestring to close end and first point.
-	p = append(p, createLine(points[0], points[len(points)-1]))
+	p = append(p, createLine(points[len(points)-1], points[0]))
 
 	return p
 }
@@ -63,6 +63,24 @@ func (p Polygon) GetArea() float64 {
 		subTotal = subTotal + part
 	}
 	return subTotal / 2
+}
+
+//ClosedChain - Check if is a closed chain of lines (i.e. it is a Polygon)
+func (p Polygon) ClosedChain() bool {
+	start := p[0][0]
+	end := p[len(p)-1][1]
+	x, y := false, false
+	if start.X == end.X {
+		x = true
+	}
+	if start.Y == end.Y {
+		y = true
+	}
+	if x == true && y == true {
+		return true
+	}
+	return false
+
 }
 
 //TODO
