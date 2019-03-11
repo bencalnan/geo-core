@@ -1,7 +1,5 @@
 package main
 
-//Create Geometry Interface
-
 //Polygon - Closed Chain Polyline
 type Polygon []Line
 
@@ -35,8 +33,9 @@ func (p Polygon) getVertices() []Point {
 	return distinctPoints
 }
 
-// NumEdges returns the number of edges in this shape. // Copied from S2 //Move out, and create interface.
-func (p *Polygon) getNumEdges() int {
+// GetNumEdges - Returns NumEdges returns the number of edges in this shape.
+// Copied from S2 //Move out, and create interface.
+func (p *Polygon) GetNumEdges() int {
 	if len(*p) == 0 {
 		return 0
 	}
@@ -85,4 +84,4 @@ func (p Polygon) ClosedChain() bool {
 
 //TODO
 //Self Intersecting
-//Check if clockwise or anticlockwise
+//Check if clockwise or anticlockwise ,, i.e. which is the inside and which is the outside.

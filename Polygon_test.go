@@ -11,7 +11,7 @@ func TestCreatePolygonFromPoints(t *testing.T) {
 			Point{0, 3},
 		},
 	)
-	edges := poly.getNumEdges()
+	edges := poly.GetNumEdges()
 
 	if edges != 4 {
 		t.Errorf("Creating Polygon from points function was incorrect, got: %d edges, want: %d edges.", edges, 4)
