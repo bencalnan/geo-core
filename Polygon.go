@@ -9,7 +9,7 @@ func (Polygon) geomType() string {
 	return "polygon"
 }
 
-// Creates a Polygon from a slice of Points
+// CreatePolygonFromPoints - Creates a Polygon from a slice of Points
 func CreatePolygonFromPoints(points []Point) Polygon {
 	var p Polygon
 	for i, pt := range points {
