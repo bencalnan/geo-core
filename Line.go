@@ -34,6 +34,4 @@ func (l *Line) getCentroid() Point {
 	return Point{X: x, Y: y}
 }
 
-// //Centroid
-//Distance to centorid
 //Lowest Range to line.
