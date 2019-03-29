@@ -32,7 +32,7 @@ func createPolyLineFromLines(lines []Line) PolyLine {
 func (p *PolyLine) GetLength() float64 {
 	var d float64
 	for _, l := range *p {
-		d = d + l.getLineLength()
+		d = d + l.length()
 	}
 	return d
 }
@@ -76,7 +76,6 @@ func (p *PolyLine) getBBox() BoundingBox {
 
 	}
 	return BoundingBox{Point{X: minX, Y: minY}, Point{X: maxX, Y: maxY}}
-
 }
 
 // NumEdges returns the number of edges in this shape. // Copied from S2 //Move out, and create interface.
@@ -105,8 +104,14 @@ func (p PolyLine) checkClosedChain() bool {
 
 }
 
+func (p *PolyLine) getCentroid() Point {
+	//http://www.ae.msstate.edu/vlsm/shape/centroid_of_a_line/straight.htm
+
+}
+
 // - Todo
 
 // - Is valid ? i.e. contains 1 less edge than number of points.
 // - Is it a simple polygonal chain.
 // - Self intersecting?
+// ///Centroid
