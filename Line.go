@@ -27,3 +27,13 @@ func createLine(a Point, b Point) Line {
 func (l *Line) getLineLength() float64 {
 	return math.Sqrt(math.Pow((l[1].X-l[0].X), 2) + math.Pow((l[1].Y-l[0].Y), 2))
 }
+
+func (l *Line) getCentroid() Point {
+	x := math.Sqrt(math.Pow((l[1].X-l[0].X), 2)) / 2
+	y := math.Sqrt(math.Pow((l[1].Y-l[0].Y), 2)) / 2
+	return Point{X: x, Y: y}
+}
+
+// //Centroid
+//Distance to centorid
+//Lowest Range to line.
