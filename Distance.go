@@ -23,6 +23,8 @@ func FindBearing(startPoint, endPoint Point) float64 {
 	return math.Atan2(y, x)
 }
 
+//Normalise bearing
+// var normalisedACBearing = 360 - math.Mod((radToDegree(bearingAC)+360), 360)
 //findCrossTrackDistance - Cross-track distance: Returns min distance between a line and another point (Lat longs).
 // This is the distance between a point and great arc, not a segment
 //Input and Output in Radians
