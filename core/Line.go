@@ -10,7 +10,7 @@ func (Line) GeomType() string {
 	return "line"
 }
 
-//GetBBox - Return Bounding box of Line
+//bbox - Return Bounding box of Line
 func (l *Line) bbox() BoundingBox {
 	maxX := math.Max(l[0].X, l[1].X)
 	maxY := math.Max(l[0].Y, l[1].Y)
@@ -24,7 +24,7 @@ func createLine(a Point, b Point) Line {
 }
 
 //The Euclidean distance between two points of the plane with Cartesian coordinates
-//Calcuate Hypoteneuse between two Points.
+//Calculates Hypoteneuse between two Points.
 func (l *Line) length() float64 {
 	return math.Sqrt(math.Pow((l[1].X-l[0].X), 2) + math.Pow((l[1].Y-l[0].Y), 2))
 }

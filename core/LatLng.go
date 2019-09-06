@@ -1,10 +1,12 @@
 package core
 
 import (
+	"math"
+
 	"github.com/bencalnan/geo-tools/utilities"
 )
 
-//LatLng - Reprsents WGS84 Coorindates (GeoCentric)
+//LatLng - Lat Long Coordinate
 type LatLng struct {
 	Lat float64
 	Lng float64
@@ -27,4 +29,14 @@ func (l *LatLng) ConvertToDegrees() LatLng {
 		Lng: utilities.RadToDegree(l.Lng),
 	}
 	return n
+}
+
+//ConvertToXYZ - Converts Lat Long (In Radians) into ECEF Cartesian coordinates (Earth-Centered, Earth-Fixed) (Geodetic -> Geocentric)
+func (l *LatLng) ConvertToXYZ() Point3D {
+	p := Point3D{
+		X: utilities.EarthRadius * math.Cos(l.Lat) * math.Cos(l.Lng),
+		Y: utilities.EarthRadius * math.Cos(l.Lat) * math.Sin(l.Lng),
+		Z: utilities.EarthRadius * math.Sin(l.Lat),
+	}
+	return p
 }

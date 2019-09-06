@@ -111,29 +111,4 @@ func (p Polygon) ClosedChain() bool {
 
 }
 
-//http://csharphelper.com/blog/2014/07/find-the-centroid-of-a-polygon-in-c/
-//https://en.wikipedia.org/wiki/Centroid#Of_a_polygon
-// func (p Polygon) GetCentroid() float64 {
-// 	vertices := p.GetVertices()
-// 	vertices = append(vertices, vertices[0])
-// 	numPoints := len(vertices)
-// 	area := p.GetArea()
-// 	var X float64
-// 	var Y float64
-// 	for i := 0; i < numPoints; i++ {
-// 		sF := vertices
-// 	}
 
-// }
-
-//TODO
-//Add point and reclose loop.
-//Self Intersecting
-//Check if clockwise or anticlockwise ,, i.e. which is the inside and which is the outside.
-//Point in poly
-
-//A slower but easier-to-implement algorithm than that suggested by lhf,
-//is to check each segment against every other, and verify that two segments only intersect
-//at an endpoint they share, and that each vertex is shared by exactly two segments.
-//For this you need only robust segment-segment intersection code, which is available on the web in many locations, including here.
-//http://cs.smith.edu/~jorourke/books/ftp.html

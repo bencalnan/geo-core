@@ -105,14 +105,3 @@ func (p PolyLine) checkClosedChain() bool {
 
 }
 
-// func (p *PolyLine) centroid() Point {
-// 	//http://www.ae.msstate.edu/vlsm/shape/centroid_of_a_line/straight.htm
-
-// }
-
-// - Todo
-
-// - Is valid ? i.e. contains 1 less edge than number of points.
-// - Is it a simple polygonal chain.
-// - Self intersecting?
-// ///Centroid
