@@ -24,17 +24,17 @@ func CreatePolygonFromPoints(points []Point) Polygon {
 }
 
 //GetVertices - Returns distinct vertices that make up the Polygon.
-func (p Polygon) GetVertices() []Point {
+func (p Polygon) vertices() []Point {
 	var distinctPoints []Point
-	distinctPoints = append(distinctPoints, p[0][0])
+	// distinctPoints = append(distinctPoints, p[0][0])
 	for _, l := range p {
-		distinctPoints = append(distinctPoints, l[1])
+		distinctPoints = append(distinctPoints, l[0])
 	}
 	return distinctPoints
 }
 
 // GetNumEdges - Returns NumEdges returns the number of edges in this shape.
-// Copied from S2 //Move out, and create interface.
+// Copied from S2
 func (p *Polygon) GetNumEdges() int {
 	if len(*p) == 0 {
 		return 0
@@ -43,10 +43,10 @@ func (p *Polygon) GetNumEdges() int {
 }
 
 //GetPerimeter - Returns perimeter of polygon
-func (p *Polygon) GetPerimeter() float64 {
+func (p *Polygon) perimeter() float64 {
 	var d float64
 	for _, l := range *p {
-		d = d + l.getLineLength()
+		d = d + l.length()
 	}
 	return d
 }
@@ -54,14 +54,42 @@ func (p *Polygon) GetPerimeter() float64 {
 // GetArea - Returns area of polygon
 // https://www.mathopenref.com/coordpolygonarea.html
 // Note does not work for self intersecting polygons. (need to add catch for this. )
-func (p Polygon) GetArea() float64 {
-	distinctPoints := p.GetVertices()
+func (p Polygon) area() float64 {
+	distinctPoints := p.vertices()
+	distinctPoints[len(distinctPoints)] = distinctPoints[0]
 	var subTotal float64
 	for i := 0; i < len(distinctPoints)-1; i++ {
 		part := (distinctPoints[i].X * distinctPoints[i+1].Y) + (distinctPoints[i].Y * distinctPoints[i+1].X)
 		subTotal = subTotal + part
 	}
 	return subTotal / 2
+}
+
+func (p *Polygon) bbox() BoundingBox {
+	points := p.vertices()
+	points[len(points)] = points[0]
+
+	var minX float64
+	var minY float64
+	var maxX float64
+	var maxY float64
+
+	for _, pt := range points {
+		if pt.X < minX {
+			minX = pt.X
+		}
+		if pt.Y < minY {
+			minY = pt.Y
+		}
+		if pt.X > maxX {
+			maxX = pt.X
+		}
+		if pt.Y > maxY {
+			maxY = pt.Y
+		}
+
+	}
+	return BoundingBox{Point{X: minX, Y: minY}, Point{X: maxX, Y: maxY}}
 }
 
 //ClosedChain - Check if is a closed chain of lines (i.e. it is a Polygon)
@@ -82,8 +110,22 @@ func (p Polygon) ClosedChain() bool {
 
 }
 
+//http://csharphelper.com/blog/2014/07/find-the-centroid-of-a-polygon-in-c/
+//https://en.wikipedia.org/wiki/Centroid#Of_a_polygon
+// func (p Polygon) GetCentroid() float64 {
+// 	vertices := p.GetVertices()
+// 	vertices = append(vertices, vertices[0])
+// 	numPoints := len(vertices)
+// 	area := p.GetArea()
+// 	var X float64
+// 	var Y float64
+// 	for i := 0; i < numPoints; i++ {
+// 		sF := vertices
+// 	}
+
+// }
+
 //TODO
-//Centroid
 //Add point and reclose loop.
 //Self Intersecting
 //Check if clockwise or anticlockwise ,, i.e. which is the inside and which is the outside.

@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestCreatePolygonFromPoints(t *testing.T) {
 	poly := CreatePolygonFromPoints(
@@ -21,6 +24,22 @@ func TestCreatePolygonFromPoints(t *testing.T) {
 
 	if closed != true {
 		t.Error("Creating Polygon from points failed, polygon not closed")
+	}
+}
+
+func TestGetVertices(t *testing.T) {
+	poly := CreatePolygonFromPoints(
+		[]Point{
+			Point{0, 0},
+			Point{3, 0},
+			Point{3, 3},
+			Point{0, 3},
+		},
+	)
+	vertices := poly.GetVertices()
+	fmt.Printf("%v\n", vertices)
+	if len(vertices) != 4 {
+		t.Errorf("Wrong Number of vertices, got %d, want %d", len(vertices), 4)
 	}
 }
 
@@ -53,3 +72,15 @@ func TestGetArea(t *testing.T) {
 		t.Errorf("Area calculation was incorrect, got: %d, want: %d.", int(total), 9)
 	}
 }
+
+// func TestGetCentroid(t *testing.T) {
+// 	poly := CreatePolygonFromPoints(
+// 		[]Point{
+// 			Point{0, 0},
+// 			Point{4, 0},
+// 			Point{4, 4},
+// 			Point{0, 4},
+// 		},
+// 	)
+
+// }

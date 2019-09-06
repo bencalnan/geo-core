@@ -29,7 +29,7 @@ func createPolyLineFromLines(lines []Line) PolyLine {
 }
 
 //GetLength - Returns length of a polyline.
-func (p *PolyLine) GetLength() float64 {
+func (p *PolyLine) length() float64 {
 	var d float64
 	for _, l := range *p {
 		d = d + l.length()
@@ -38,7 +38,7 @@ func (p *PolyLine) GetLength() float64 {
 }
 
 // GetVertices - returns all vertices in Polyline.
-func (p *PolyLine) GetVertices() []Point {
+func (p *PolyLine) vertices() []Point {
 	var v []Point
 	for i, l := range *p {
 		if i == 0 {
@@ -53,8 +53,8 @@ func (p *PolyLine) getNumVertices() int {
 	return len(*p) + 1
 }
 
-func (p *PolyLine) getBBox() BoundingBox {
-	points := p.GetVertices()
+func (p *PolyLine) bbox() BoundingBox {
+	points := p.vertices()
 	var minX float64
 	var minY float64
 	var maxX float64
@@ -104,7 +104,7 @@ func (p PolyLine) checkClosedChain() bool {
 
 }
 
-func (p *PolyLine) getCentroid() Point {
+func (p *PolyLine) centroid() Point {
 	//http://www.ae.msstate.edu/vlsm/shape/centroid_of_a_line/straight.htm
 
 }
