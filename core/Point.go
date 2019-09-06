@@ -6,7 +6,8 @@ type Point struct {
 	Y float64
 }
 
-func (Point) geomType() string {
+// GeomType - Describes geometry type
+func (Point) GeomType() string {
 	return "point"
 }
 
@@ -16,8 +17,8 @@ func (p *Point) createPointFromCoords(x float64, y float64) {
 }
 
 func (p *Point) createPointFromLatLng(latLng LatLng) {
-	p.X = latLng.lat
-	p.Y = latLng.lng
+	p.X = latLng.Lat
+	p.Y = latLng.Lng
 }
 
 //Add Two points together

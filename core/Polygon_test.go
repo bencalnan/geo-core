@@ -36,7 +36,7 @@ func TestGetVertices(t *testing.T) {
 			Point{0, 3},
 		},
 	)
-	vertices := poly.GetVertices()
+	vertices := poly.Vertices()
 	fmt.Printf("%v\n", vertices)
 	if len(vertices) != 4 {
 		t.Errorf("Wrong Number of vertices, got %d, want %d", len(vertices), 4)
@@ -52,7 +52,7 @@ func TestGetPerimeter(t *testing.T) {
 			Point{0, 3},
 		},
 	)
-	total := poly.GetPerimeter()
+	total := poly.Perimeter()
 	if total != 12 {
 		t.Errorf("Perimeter calculation was incorrect, got: %d, want: %d.", int(total), 12)
 	}
@@ -67,7 +67,7 @@ func TestGetArea(t *testing.T) {
 			Point{0, 3},
 		},
 	)
-	total := poly.GetArea()
+	total := poly.Area()
 	if total != 9 {
 		t.Errorf("Area calculation was incorrect, got: %d, want: %d.", int(total), 9)
 	}

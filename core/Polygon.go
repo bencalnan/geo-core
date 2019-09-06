@@ -3,6 +3,7 @@ package core
 //Polygon - Closed Chain Polyline
 type Polygon []Line
 
+// GeomType - Describes geometry type
 func (Polygon) geomType() string {
 	return "polygon"
 }
@@ -23,8 +24,8 @@ func CreatePolygonFromPoints(points []Point) Polygon {
 	return p
 }
 
-//GetVertices - Returns distinct vertices that make up the Polygon.
-func (p Polygon) vertices() []Point {
+//Vertices - Returns distinct vertices that make up the Polygon.
+func (p Polygon) Vertices() []Point {
 	var distinctPoints []Point
 	// distinctPoints = append(distinctPoints, p[0][0])
 	for _, l := range p {
@@ -42,8 +43,8 @@ func (p *Polygon) GetNumEdges() int {
 	return len(*p)
 }
 
-//GetPerimeter - Returns perimeter of polygon
-func (p *Polygon) perimeter() float64 {
+//Perimeter - Returns perimeter of polygon
+func (p *Polygon) Perimeter() float64 {
 	var d float64
 	for _, l := range *p {
 		d = d + l.length()
@@ -51,11 +52,11 @@ func (p *Polygon) perimeter() float64 {
 	return d
 }
 
-// GetArea - Returns area of polygon
+// Area - Returns area of polygon
 // https://www.mathopenref.com/coordpolygonarea.html
 // Note does not work for self intersecting polygons. (need to add catch for this. )
-func (p Polygon) area() float64 {
-	distinctPoints := p.vertices()
+func (p Polygon) Area() float64 {
+	distinctPoints := p.Vertices()
 	distinctPoints[len(distinctPoints)] = distinctPoints[0]
 	var subTotal float64
 	for i := 0; i < len(distinctPoints)-1; i++ {
@@ -66,7 +67,7 @@ func (p Polygon) area() float64 {
 }
 
 func (p *Polygon) bbox() BoundingBox {
-	points := p.vertices()
+	points := p.Vertices()
 	points[len(points)] = points[0]
 
 	var minX float64

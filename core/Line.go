@@ -5,7 +5,8 @@ import "math"
 //Line - A edge created from 2 Points.
 type Line [2]Point
 
-func (Line) geomType() string {
+// GeomType - Describes geometry type
+func (Line) GeomType() string {
 	return "line"
 }
 

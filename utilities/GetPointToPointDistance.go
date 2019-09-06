@@ -14,21 +14,21 @@ func PointToPointDistanceCosine(startPoint, endPoint core.Point) float64 {
 }
 
 //PointToPointHaversine - Altnernative method for getting distance (in meters) bewteen two Lat/Longs using cosine formula.
-func PointToPointHaversine(startLat, startLon, endLat, endLon float64) float64 {
+func PointToPointHaversine(start, end core.LatLng) float64 {
 
-	var startLatr = DegToRad(startLat)
-	var endLatR = DegToRad(endLat)
-	var difLat = DegToRad(endLat - startLat)
-	var difLon = DegToRad(endLon - startLon)
+	var startRadian = start.ConvertToRadian()
+	var endRadian = end.ConvertToRadian()
+	var difLat = DegToRad(endRadian.Lat - startRadian.Lat)
+	var difLng = DegToRad(endRadian.Lng - startRadian.Lng)
 
-	var a = math.Sin(difLat/2)*math.Sin(difLat/2) + math.Cos(startLatr)*math.Cos(endLatR)*math.Sin(difLon/2)*math.Sin(difLon/2)
+	var a = math.Sin(difLat/2)*math.Sin(difLat/2) + math.Cos(startRadian.Lat)*math.Cos(endRadian.Lat)*math.Sin(difLng/2)*math.Sin(difLng/2)
 	var c = 2 * math.Atan2(math.Sqrt(a), math.Sqrt(1-a))
 	var d = EarthRadius * c
 	return d
 }
 
-//CartesianDistance - Get distance betweeen two cartesian points
-func CartesianDistance(source, target core.Point) float64 {
+//PointToPointCartesianDistance - Get distance betweeen two cartesian points
+func PointToPointCartesianDistance(source, target core.Point) float64 {
 	distance := math.Sqrt(math.Pow((target.X-source.X), 2) + math.Pow((target.Y-source.Y), 2))
 	return distance
 }

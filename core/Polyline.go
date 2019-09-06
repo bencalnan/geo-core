@@ -3,7 +3,8 @@ package core
 //PolyLine - Aka Polygonal chain, linestring,
 type PolyLine []Line
 
-func (PolyLine) geomType() string {
+// GeomType - Describes geometry type
+func (PolyLine) GeomType() string {
 	return "polyline"
 }
 
