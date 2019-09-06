@@ -104,10 +104,10 @@ func (p PolyLine) checkClosedChain() bool {
 
 }
 
-func (p *PolyLine) centroid() Point {
-	//http://www.ae.msstate.edu/vlsm/shape/centroid_of_a_line/straight.htm
+// func (p *PolyLine) centroid() Point {
+// 	//http://www.ae.msstate.edu/vlsm/shape/centroid_of_a_line/straight.htm
 
-}
+// }
 
 // - Todo
 
