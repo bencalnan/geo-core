@@ -1,4 +1,4 @@
-package main
+package core
 
 //PolyLine - Aka Polygonal chain, linestring,
 type PolyLine []Line

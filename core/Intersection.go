@@ -1,4 +1,4 @@
-package main
+package core
 
 //Intersection - For checking if two geometries intersect (cross one another)
 type Intersection interface {

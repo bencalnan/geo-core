@@ -1,4 +1,4 @@
-package main
+package core
 
 //LatLng - Reprsents WGS84 Coorindates (GeoCentric)
 type LatLng struct {

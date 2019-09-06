@@ -1,4 +1,4 @@
-package main
+package core
 
 //Polygon - Closed Chain Polyline
 type Polygon []Line

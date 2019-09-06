@@ -1,4 +1,4 @@
-package main
+package core
 
 // // //Geometry - All Types have
 // type Geometry interface {

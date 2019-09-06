@@ -1,4 +1,4 @@
-package main
+package core
 
 //Point - Ordered Pair
 type Point struct {
