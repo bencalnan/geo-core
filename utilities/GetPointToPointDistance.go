@@ -18,8 +18,8 @@ func PointToPointHaversine(start, end core.LatLng) float64 {
 
 	var startRadian = start.ConvertToRadian()
 	var endRadian = end.ConvertToRadian()
-	var difLat = DegToRad(endRadian.Lat - startRadian.Lat)
-	var difLng = DegToRad(endRadian.Lng - startRadian.Lng)
+	var difLat = endRadian.Lat - startRadian.Lat
+	var difLng = endRadian.Lng - startRadian.Lng
 
 	var a = math.Sin(difLat/2)*math.Sin(difLat/2) + math.Cos(startRadian.Lat)*math.Cos(endRadian.Lat)*math.Sin(difLng/2)*math.Sin(difLng/2)
 	var c = 2 * math.Atan2(math.Sqrt(a), math.Sqrt(1-a))
