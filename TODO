@@ -1,9 +1,8 @@
-- Convert utlities to a module
 
 
 TODO
 
--- Basic
+Basic
 //Centroid of polylines and polygons
 //Check if polylines are self intersecting or simple
 //Polygons self intersecting or simple
@@ -17,3 +16,4 @@ GeoTools
 //Within
 
 //Nearest Neighbour
+
