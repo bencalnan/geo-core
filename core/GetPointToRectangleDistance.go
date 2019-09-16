@@ -1,14 +1,12 @@
-package utilities
+package core
 
-import (
-	"math"
+import "math"
 
-	"github.com/bencalnan/geo-tools/core"
-)
+
 
 //PointToRectangleDistance - Get distance to closet point on a rectangle
 //Cartesian coordinates.
-func PointToRectangleDistance(p core.Point, r core.Rectangle) float64 {
+func PointToRectangleDistance(p Point, r Rectangle) float64 {
 	preMaxX := math.Max(r.Min.X-p.X, 0)
 	dx := math.Max(preMaxX, p.X-r.Max.X)
 	preMaxY := math.Max(r.Min.Y-p.Y, 0)

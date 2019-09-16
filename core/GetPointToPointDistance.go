@@ -1,20 +1,19 @@
-package utilities
+package core
 
 import (
 	"math"
 
-	"github.com/bencalnan/geo-tools/core"
 )
 
 //PointToPointDistanceCosine Get distance (in meters) bewteen two Lat/Longs using cosine formula. Has some benefits over using Haversine formula.
 //Input and Output in Radians
-func PointToPointDistanceCosine(startPoint, endPoint core.Point) float64 {
+func PointToPointDistanceCosine(startPoint, endPoint Point) float64 {
 	var d = math.Acos(math.Sin(startPoint.Y)*math.Sin(endPoint.Y)+math.Cos(startPoint.Y)*math.Cos(endPoint.Y)*math.Cos(startPoint.X-endPoint.X)) * EarthRadius
 	return d
 }
 
 //PointToPointHaversine - Altnernative method for getting distance (in meters) bewteen two Lat/Longs using cosine formula.
-func PointToPointHaversine(start, end core.LatLng) float64 {
+func PointToPointHaversine(start, end LatLng) float64 {
 
 	var startRadian = start.ConvertToRadian()
 	var endRadian = end.ConvertToRadian()
@@ -28,7 +27,7 @@ func PointToPointHaversine(start, end core.LatLng) float64 {
 }
 
 //PointToPointCartesianDistance - Get distance betweeen two cartesian points
-func PointToPointCartesianDistance(source, target core.Point) float64 {
+func PointToPointCartesianDistance(source, target Point) float64 {
 	distance := math.Sqrt(math.Pow((target.X-source.X), 2) + math.Pow((target.Y-source.Y), 2))
 	return distance
 }
