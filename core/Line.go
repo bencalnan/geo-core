@@ -30,8 +30,8 @@ func (l *Line) length() float64 {
 }
 
 func (l *Line) centroid() Point {
-	x := math.Sqrt(math.Pow((l[1].X-l[0].X), 2)) / 2
-	y := math.Sqrt(math.Pow((l[1].Y-l[0].Y), 2)) / 2
+	x := math.Abs((l[1].X + l[0].X)) / 2
+	y := math.Abs((l[1].Y + l[0].Y)) / 2
 	return Point{X: x, Y: y}
 }
 

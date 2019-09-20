@@ -88,9 +88,10 @@ func (p *PolyLine) getNumEdges() int {
 }
 
 //ClosedChain - Check if is a closed chain of lines (i.e. it is a Polygon)
-func (p PolyLine) checkClosedChain() bool {
-	start := p[0][0]
-	end := p[len(p)-1][1]
+func (p *PolyLine) checkClosedChain() bool {
+	pV := *p
+	start := pV[0][0]
+	end := pV[len(pV)-1][1]
 	x, y := false, false
 	if start.X == end.X {
 		x = true
@@ -105,3 +106,22 @@ func (p PolyLine) checkClosedChain() bool {
 
 }
 
+//centroid - Return centroid of a polyline
+func (p *PolyLine) centroid() Point {
+
+	var xTop = 0.0
+	var yTop = 0.0
+	var xBottom = 0.0
+	var yBottom = 0.0
+	for _, l := range *p {
+		centroid := l.centroid()
+		length := l.length()
+		xTop = xTop + centroid.X*length
+		yTop = yTop + centroid.Y*length
+		xBottom = xBottom + length
+		yBottom = yBottom + length
+	}
+	xCentroid := xTop / xBottom
+	yCentroid := yTop / yBottom
+	return Point{X: xCentroid, Y: yCentroid}
+}

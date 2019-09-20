@@ -20,14 +20,7 @@ GeoTools
 
 
 
-//POlyline 
-
-// func (p *PolyLine) centroid() Point {
-// 	//http://www.ae.msstate.edu/vlsm/shape/centroid_of_a_line/straight.htm
-
-// }
-
-// - Todo
+// - Polyline Todo
 
 // - Is valid ? i.e. contains 1 less edge than number of points.
 // - Is it a simple polygonal chain.
