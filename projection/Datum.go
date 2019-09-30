@@ -1,6 +1,6 @@
-package projections;
+package projections
 
-type Datum {
-	name: string
-	SRID: string
+type Datum struct {
+	name string
+	SRID string
 }

@@ -23,8 +23,8 @@ func (l *LatLng) ConvertToRadian() LatLng {
 // ConvertToDegrees - Convert Radians to degrees
 func (l *LatLng) ConvertToDegrees() LatLng {
 	n := LatLng{
-		Lat: RadToDegree(l.Lat),
-		Lng: RadToDegree(l.Lng),
+		Lat: RadToDeg(l.Lat),
+		Lng: RadToDeg(l.Lng),
 	}
 	return n
 }
