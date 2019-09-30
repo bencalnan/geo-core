@@ -1,9 +1,6 @@
-
 package core
 
-import 
-	"math"
-
+import "math"
 
 // FindBearing - Returns bearing between a start and end point
 // Input and Output in Radians.
