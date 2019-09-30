@@ -20,7 +20,7 @@ func TestPointToPointDistanceCosine(t *testing.T) {
 	fmt.Printf("%v meters \n", distance)
 
 	if int64(distance) != 217 {
-		t.Errorf("Distace between two points is wrong, got: %d meters, want: %d meters.", int64(distance), 217)
+		t.Errorf("Distance between two points is wrong, got: %d meters, want: %d meters.", int64(distance), 217)
 	}
 
 }
@@ -40,7 +40,7 @@ func TestPointToPointDistanceHaversine(t *testing.T) {
 	fmt.Printf("%v meters \n", distance)
 
 	if int64(distance) != 217 {
-		t.Errorf("Distace between two points is wrong, got: %d meters, want: %d meters.", int64(distance), 217)
+		t.Errorf("Distance between two points is wrong, got: %d meters, want: %d meters.", int64(distance), 217)
 	}
 
 }

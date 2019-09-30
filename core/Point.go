@@ -17,8 +17,8 @@ func (p *Point) createPointFromCoords(x float64, y float64) {
 }
 
 func (p *Point) createPointFromLatLng(latLng LatLng) {
-	p.X = latLng.Lat
-	p.Y = latLng.Lng
+	p.X = latLng.Lng
+	p.Y = latLng.Lat
 }
 
 //Add Two points together
