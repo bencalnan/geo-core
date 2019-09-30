@@ -19,15 +19,15 @@
 
 ### Polyline
 
-- Create Polyline from points
-- Create Polyline from lines
+- Create polyline from points
+- Create polyline from lines
 - Get Length
 - Get Centroid
 - Get Vertices (Array of Points)
 - Get Number of vertices
 - Get Bounding Box
 - Get Number of edges
-- Check if closed chain of lines (i.e. a polygon
+- Check if closed chain of lines (i.e. a polygon)
 
 ### Polygon
 
