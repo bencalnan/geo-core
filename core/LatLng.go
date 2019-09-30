@@ -20,6 +20,15 @@ func (l *LatLng) ConvertToRadian() LatLng {
 	return n
 }
 
+// ConvertToPoint - Converts a lat long to a 2D point
+func (l *LatLng) ConvertToPoint() Point {
+	p := Point{
+		X: l.Lng,
+		Y: l.Lat,
+	}
+	return p
+}
+
 // ConvertToDegrees - Convert Radians to degrees
 func (l *LatLng) ConvertToDegrees() LatLng {
 	n := LatLng{
@@ -38,3 +47,7 @@ func (l *LatLng) ConvertToXYZ() Point3D {
 	}
 	return p
 }
+
+// func (l *LatLng) Normalize() {
+
+// }

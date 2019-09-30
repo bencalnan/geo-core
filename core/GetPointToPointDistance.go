@@ -2,10 +2,9 @@ package core
 
 import (
 	"math"
-
 )
 
-//PointToPointDistanceCosine Get distance (in meters) bewteen two Lat/Longs using cosine formula. Has some benefits over using Haversine formula.
+//PointToPointDistanceCosine Get distance (in meters) bewteen two Lat/Lons using cosine formula. Has some benefits over using Haversine formula.
 //Input and Output in Radians
 func PointToPointDistanceCosine(startPoint, endPoint Point) float64 {
 	var d = math.Acos(math.Sin(startPoint.Y)*math.Sin(endPoint.Y)+math.Cos(startPoint.Y)*math.Cos(endPoint.Y)*math.Cos(startPoint.X-endPoint.X)) * EarthRadius
