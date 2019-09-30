@@ -2,41 +2,41 @@
 # Geo Core 
 
 
-## Library for common Geometry and location functions. 
+## Library for common Geometry and location functions in Go.
 
 
 ### Point
  - Create points from XY
  - Create point from Lat Lng
  - Add Point
- - Substract point
+ - Subtract point
 
 ### Line
  - Create line from 2 points
- - Length
- - Centroid
- - Bounding Box
+ - Get Length
+ - Get Centroid
+ - Get Bounding Box
 
 ### Polyline
 
 - Create Polyline from points
 - Create Poyline from lines
-- Length
-- Centroid
-- Vertices
-- Number of vertices
-- Bounding Box
-- Number of edges
+- Get Length
+- Get Centroid
+- Get Vertices (Array of Points)
+- Get Number of vertices
+- Get Bounding Box
+- Get Number of edges
 - Check if closed chain of lines (i.e. a polygon
 
 ### Polygon
 
 - Create Polygon from points
-- Vertices
-- Number of Edges
-- Perimeter (length)
-- Area
-- Bounding Box
+- Get Vertices (Array of Points)
+- Get Number of Edges
+- Get Perimeter (length)
+- Get Area
+- Get Bounding Box
 - Check if closed chain. 
 
 
