@@ -1,23 +1,23 @@
 
-### Geo Core 
+# Geo Core 
 
 
 ## Library for common Geometry and location functions. 
 
 
-# Point
+### Point
  - Create points from XY
  - Create point from Lat Lng
  - Add Point
  - Substract point
 
-# Line
+### Line
  - Create line from 2 points
  - Length
  - Centroid
  - Bounding Box
 
- # Polyline
+### Polyline
 
 - Create Polyline from points
 - Create Poyline from lines
@@ -29,7 +29,7 @@
 - Number of edges
 - Check if closed chain of lines (i.e. a polygon
 
-# Polygon
+### Polygon
 
 - Create Polygon from points
 - Vertices
@@ -40,7 +40,7 @@
 - Check if closed chain. 
 
 
-# Utilities
+### Utilities
 
  - Get point to point distance (Cartesian)
  - Get point to point distance (Geographic)
