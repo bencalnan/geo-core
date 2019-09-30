@@ -11,6 +11,11 @@ type LatLng struct {
 	Alt int //Optional Altitude
 }
 
+func (l *LatLng) createLatLngFromPoint(p Point) {
+	l.Lat = p.Y
+	l.Lng = p.X
+}
+
 // ConvertToRadian - Convert degrees to radians
 func (l *LatLng) ConvertToRadian() LatLng {
 	n := LatLng{
@@ -47,7 +52,3 @@ func (l *LatLng) ConvertToXYZ() Point3D {
 	}
 	return p
 }
-
-// func (l *LatLng) Normalize() {
-
-// }

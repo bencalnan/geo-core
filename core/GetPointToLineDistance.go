@@ -25,7 +25,7 @@ func PointToLineGeographicDistance(p LatLng, l Line) float64 {
 	}
 	var c = p.ConvertToRadian()
 
-	var t = nearestPointGreatCircle2(a, b, c)
+	var t = nearestPointGreatCircle(a, b, c)
 	aPoint := a.ConvertToPoint()
 	bPoint := b.ConvertToPoint()
 	cPoint := c.ConvertToPoint()
@@ -47,7 +47,7 @@ func PointToLineGeographicDistance(p LatLng, l Line) float64 {
 
 }
 
-func nearestPointGreatCircle2(a, b, c LatLng) LatLng {
+func nearestPointGreatCircle(a, b, c LatLng) LatLng {
 	var aCartesian = a.ConvertToXYZ()
 	var bCartesian = b.ConvertToXYZ()
 	var cCartesian = c.ConvertToXYZ()
