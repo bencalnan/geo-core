@@ -20,7 +20,7 @@
 ### Polyline
 
 - Create Polyline from points
-- Create Poyline from lines
+- Create Polyline from lines
 - Get Length
 - Get Centroid
 - Get Vertices (Array of Points)
