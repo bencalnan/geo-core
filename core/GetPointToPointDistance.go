@@ -11,7 +11,7 @@ func PointToPointDistanceCosine(startPoint, endPoint Point) float64 {
 	return d
 }
 
-//PointToPointHaversine - Altnernative method for getting distance (in meters) bewteen two Lat/Longs using cosine formula.
+//PointToPointHaversine - Alternative method for getting distance (in meters) bewteen two Lat/Longs using cosine formula. Possibly slightly faster.
 func PointToPointHaversine(start, end LatLng) float64 {
 
 	var startRadian = start.ConvertToRadian()

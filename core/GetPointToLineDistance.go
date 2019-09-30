@@ -31,7 +31,7 @@ func PointToLineGeographicDistance(p LatLng, l Line) float64 {
 	cPoint := c.ConvertToPoint()
 	tPoint := t.ConvertToPoint()
 
-	//If closet point is on the line use that.
+	//If closest point is on the line use that.
 	if onSegment(aPoint, bPoint, tPoint) {
 		return PointToPointDistanceCosine(tPoint, cPoint)
 	}

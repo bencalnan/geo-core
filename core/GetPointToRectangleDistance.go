@@ -2,8 +2,6 @@ package core
 
 import "math"
 
-
-
 //PointToRectangleDistance - Get distance to closet point on a rectangle
 //Cartesian coordinates.
 func PointToRectangleDistance(p Point, r Rectangle) float64 {
