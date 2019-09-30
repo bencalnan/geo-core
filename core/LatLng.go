@@ -11,7 +11,8 @@ type LatLng struct {
 	Alt int //Optional Altitude
 }
 
-func (l *LatLng) createLatLngFromPoint(p Point) {
+// CreateLatLngFromPoint - Create Lat Long struct from Point
+func (l *LatLng) CreateLatLngFromPoint(p Point) {
 	l.Lat = p.Y
 	l.Lng = p.X
 }
