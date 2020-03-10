@@ -1,4 +1,4 @@
-
+![Go](https://github.com/bencalnan/geo-core/workflows/Go/badge.svg?branch=master)
 # Geo Core 
 
 
