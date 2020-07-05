@@ -3,10 +3,10 @@
 TODO
 
 Basic
-//Centroid of polylines and polygons see below
-//Check if polylines are self intersecting or simple
+//Centroid polygons
+//Polylinec are self intersecting or simple
 //Polygons self intersecting or simple
-//Chck polygons are intersecting or simple
+
 
 GeoTools
 //Buffering of geometries
@@ -25,7 +25,6 @@ GeoTools
 // - Is valid ? i.e. contains 1 less edge than number of points.
 // - Is it a simple polygonal chain.
 // - Self intersecting?
-// ///Centroid
 
 
 

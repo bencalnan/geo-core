@@ -125,3 +125,61 @@ func (p *PolyLine) centroid() Point {
 	yCentroid := yTop / yBottom
 	return Point{X: xCentroid, Y: yCentroid}
 }
+//https://www.geeksforgeeks.org/given-a-set-of-line-segments-find-if-any-two-segments-intersect/
+
+
+
+
+///TRY THHIS ONE??? FOR TWO POLYLINES THOUGH
+// https://stackoverflow.com/questions/27745972/test-if-polylines-intersects-using-python
+
+
+// // https://stackoverflow.com/questions/4845569/c-sharp-polyline-is-self-crossing
+//   func clockwise(p0, p1, p2 Point) int{
+//         epsilon := 1e-13
+
+//         dx1 := p1.X - p0.X
+//         dy1 := p1.Y - p0.Y
+//         dx2 := p2.X - p0.X
+// 		dy2 := p2.Y - p0.Y
+		
+//         d := dx1 * dy2 - dy1 * dx2
+//         if d > epsilon {
+// 			return 1
+// 		}
+//         if d < -epsilon {
+// 			return -1
+// 		} 
+//         if dx1*dx2 < -epsilon) || (dy1*dy2 < -epsilon {
+// 			return -1
+// 		} 
+//         if dx1*dx1+dy1*dy1) < (dx2*dx2+dy2*dy2)+epsilon {
+// 			return 1
+// 		} 
+//         return 0
+// 	}
+	
+// 	func checkIntersection(p1, p2, q1, q2 Point) bool {
+//         return (clockwise(p1,p2,q1) * clockwise(p1,p2,q2) <=0) &&
+//             (clockwise(q1,q2,p1) * clockwise(q1,q2,p2) <=0);
+// 	}
+	
+// 	func (*Polyline) IsSelfIntersecting() bool
+//     {
+//         if size <= 5 {
+// 			return false
+// 		}
+			
+			
+//         first = body.Points.ElementAt(size - 1);
+//         second = body.Points.ElementAt(size - 2);
+//         for (int i = 0; i < size - 3; i++)
+//         {
+//             if (checkIntersection(first, second, body.Points.ElementAt(i),
+//                 body.Points.ElementAt(i + 1)))
+//             {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
